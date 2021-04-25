@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Добавить книгу</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {% if img_str %}
+        <img src="{{img_str}}" alt="">
+        {% else %}
+        Обложка отсутствует
+        {% endif %}
+    </p>
+    <p>
+        {{ form.title.label }}<br>
+        {{ form.title(class="form-control") }}<br>
+        {% for error in form.title.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.creator.label }}<br>
+        {{ form.creator(class="form-control") }}<br>
+        {% for error in form.creator.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.created_date.label }}<br>
+        {{ form.created_date(class="form-control", type="number") }}<br>
+        {% for error in form.created_date.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.series.label }}<br>
+        {{ form.series(class="form-control", type="number") }}<br>
+        {% for error in form.series.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.about.label }}<br>
+        {{ form.about(class="form-control") }}<br>
+        {% for error in form.about.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.file.label }}<br>
+        {{ form.file(class="form-control", type="file") }}<br>
+        {% for error in form.file.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.submit(type="submit", class="btn btn-primary") }}
+        {{ form.cancel(type="submit", class="btn btn-secondary") }}
+    </p>
+    <div>{{ message }}</div>
+</form>
+
+
+<p>
+    file
+</p>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Наши книги</h1>
+{% for item in books%}
+<div class="col-md6 border rounded">
+    <h2>{{item.title}}</h2>
+    <div>
+        <a href="/book/{{item.id}}"><img src="{{item.cover}}"/></a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

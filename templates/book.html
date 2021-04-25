@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if book.title %}
+<h1>{{book.title}}</h1>
+{% endif %}
+{% if book.creator %}
+<h2>{{book.creator}}</h2>
+{% endif %}
+{% if book.created_date %}
+<h3>Год издания: {{book.created_date}}</h3>
+{% endif %}
+{% if book.cover %}
+<img src="{{img_str}}" alt="">
+{% endif %}
+{% if book.about %}
+<h4>Описание:</h4>
+<p>{{book.about}}</p>
+{% endif %}
+<p>
+    <a href="/book/{{book.id}}/edit">Редактировать</a>
+</p>
+<p>
+    <a href="/">К списку книг</a>
+</p>
+{% endblock %}
